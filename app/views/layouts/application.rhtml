@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Ajax table manipulation attempt</title>
+    <%= stylesheet_link_tag "stylesheet" %>
+    <%= javascript_include_tag "prototype","lowpro","effects","application", "tablesort"%>
+    <%#= javascript_include_tag "prototype","lowpro","effects","application","fastinit","tablekit"%>
+    <%= javascript_include_tag :defaults %>
+    
+  </head>
+  <body>
+    
+    <div id="content">
+      <%= @content_for_layout %>
+    </div>
+    
+  </body>
+</html>

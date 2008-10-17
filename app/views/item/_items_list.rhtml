@@ -1,0 +1,43 @@
+<% if @total == 0 %>
+
+  <p>No items found...</p>
+
+<% else %>
+
+  <p>Number of items found : <b><%= @total %></b></p>
+
+  <p>
+    <%= will_paginate(@items, :renderer =>'RemoteLinkRenderer', :params => {:remote => {:update => 'table'},:query => params[:query], :sort =>params[:sort],:page =>params[:page]}) %>
+  </p>
+  <script type="text/javascript">
+      SortableTable.load();
+      //TableKit.Sortable.load();
+  </script>
+  <table class="sortable" id="table">
+    <thead>
+      <tr>
+        <td <%#= sort_td_class_helper "name" %>>Name
+          <%#= sort_link_helper "Name", "name" %>
+          </td>
+        <td <%#= sort_td_class_helper "qty" %>>Quantity
+          <%#= sort_link_helper "Quantity", "qty" %>
+          </td>
+        <td <%#= sort_td_class_helper "price" %>>Price
+          <%#= sort_link_helper "Price", "price" %>
+          </td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @items.each do |i| %>
+        <tr>
+          <td><%= i.name %></td>
+          <td><%= i.quantity %></td>
+          <td><%= i.price %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% end %>
+
+

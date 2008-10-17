@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <tr>
+      <td <%= sort_td_class_helper "name" %>>
+        <%= sort_link_helper "Name", "name" %>
+      </td>
+      <td <%= sort_td_class_helper "qty" %>>
+        <%= sort_link_helper "Quantity", "qty" %>
+      </td>
+      <td <%= sort_td_class_helper "price" %>>
+        <%= sort_link_helper "Price", "price" %>
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |i| %>
+    <tr class="<%= cycle("even","odd") %>">
+      <td><%= i.name %></td>
+      <td><%= i.quantity %></td>
+      <td><%= i.price %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
